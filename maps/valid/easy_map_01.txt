@@ -1,0 +1,8 @@
+nb_drones: 3
+start_hub: hub 0 0 [color=green]
+end_hub: goal 10 10 [color=yellow]
+hub: roof1 3 4 [zone=normal color=red]
+hub: roof2 6 2 [zone=priority color=blue]
+connection: hub-roof1
+connection: roof1-roof2
+connection: roof2-goal
