@@ -1,0 +1,11 @@
+nb_drones: 2
+
+start_hub: begininng 0 0
+end_hub: end 6 0
+
+hub: mid 3 0 [zone=restricted max_drones=1]
+hub: roof 4 2
+
+connection: begininng-mid [max_link_capacity=2]
+connection: mid-roof
+connection: roof-end [max_link_capacity=1]

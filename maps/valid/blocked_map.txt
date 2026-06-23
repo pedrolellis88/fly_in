@@ -1,0 +1,12 @@
+nb_drones: 2
+start_hub: start 0 0
+end_hub: end 6 0
+hub: bad 2 0 [zone=blocked]
+hub: alt1 2 2
+hub: mid 4 0
+
+connection: start-bad
+connection: bad-end
+connection: start-alt1
+connection: alt1-mid
+connection: mid-end

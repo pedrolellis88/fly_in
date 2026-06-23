@@ -1,0 +1,14 @@
+nb_drones: 2
+start_hub: start 0 0 [color=green]
+end_hub: end 8 0 [color=yellow]
+hub: p1 2 1 [zone=priority color=green]
+hub: n1 2 -1 [zone=normal color=blue]
+hub: p2 5 1 [zone=normal color=blue]
+hub: n2 5 -1 [zone=normal color=blue]
+
+connection: start-p1
+connection: start-n1
+connection: p1-p2
+connection: n1-n2
+connection: p2-end
+connection: n2-end

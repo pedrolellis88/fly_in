@@ -1,15 +1,27 @@
-"""Entry point for the Fly-in project."""
+"""Run the Fly-in application from the command line."""
 
 from __future__ import annotations
 
 import sys
 from pathlib import Path
 
-from src.parser.map_parser import MapParser, MapParserError
+from src.Models.graph import Graph
+from src.Parser.map_parser import MapParser, MapParserError
+from src.Pathfinding.dijkstra import PathNotFoundError
+from src.Simulation.simulator import Simulator
+from src.Visualization.graphical_renderer import GraphicalRenderer
+
+
+def build_simulator(map_path: Path) -> Simulator:
+    """Create a simulator from a parsed map file."""
+    parser = MapParser()
+    parsed_map = parser.parse(map_path)
+    graph = Graph.from_parsed_data(parsed_map)
+    return Simulator(graph)
 
 
 def main() -> int:
-    """Run the Fly-in program."""
+    """Validate arguments, build the simulator, and run the GUI."""
     if len(sys.argv) != 2:
         print("Usage: python3 main.py <map_file>")
         return 1
@@ -21,18 +33,21 @@ def main() -> int:
         return 1
 
     try:
-        parser = MapParser()
-        parsed_map = parser.parse(map_path)
-
-        print(f"Map loaded successfully: {map_path}")
-        print(f"Drones: {parsed_map['nb_drones']}")
-        print(f"Start: {parsed_map['start']}")
-        print(f"End: {parsed_map['end']}")
-        print(f"Zones: {len(parsed_map['zones'])}")
-        print(f"Connections: {len(parsed_map['connections'])}")
+        simulator = build_simulator(map_path)
+        renderer = GraphicalRenderer(
+            simulator.graph,
+            map_path,
+            build_simulator,
+        )
+        renderer.attach_simulator(simulator)
+        renderer.run()
         return 0
+
     except MapParserError as error:
         print(f"Parse error: {error}")
+        return 1
+    except PathNotFoundError as error:
+        print(f"Pathfinding error: {error}")
         return 1
     except Exception as error:
         print(f"Error: {error}")

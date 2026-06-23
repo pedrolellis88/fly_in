@@ -1,0 +1,12 @@
+nb_drones: 2
+start_hub: start 0 0 [color=green]
+end_hub: end 6 0 [color=yellow]
+hub: a 2 1 [zone=normal color=blue]
+hub: b 2 -1 [zone=normal color=blue]
+hub: merge 4 0 [zone=normal color=purple max_drones=2]
+
+connection: start-a
+connection: start-b
+connection: a-merge [max_link_capacity=1]
+connection: b-merge [max_link_capacity=1]
+connection: merge-end

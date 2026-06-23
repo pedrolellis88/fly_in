@@ -1,0 +1,26 @@
+nb_drones: 10
+start_hub: hub 0 0
+end_hub: goal 16 0
+hub: a 2 0
+hub: b 4 0
+hub: c 6 0
+hub: d 8 0
+hub: e 10 0
+hub: trap1 4 3
+hub: trap2 6 3
+hub: trap3 8 3
+hub: trap4 10 3
+
+connection: hub-a
+connection: a-b
+connection: b-c
+connection: c-d
+connection: d-e
+connection: e-goal
+
+connection: b-trap1
+connection: trap1-trap2
+connection: c-trap2
+connection: trap2-trap3
+connection: d-trap3
+connection: trap3-trap4

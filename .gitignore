@@ -1,5 +1,7 @@
 # Virtual environment
 .venv/
+venv/
+env/
 
 # Python cache
 __pycache__/
@@ -10,6 +12,12 @@ __pycache__/
 .mypy_cache/
 .pytest_cache/
 .ruff_cache/
+.tox/
+.nox/
+
+# Test / coverage outputs
+.coverage
+htmlcov/
 
 # Build artifacts
 build/
@@ -29,10 +37,7 @@ Thumbs.db
 
 # Environment files
 .env
+.env.*
 
 # Generated outputs
 data/output/*.json
-
-# Local temporary files
-tmp/
-out/

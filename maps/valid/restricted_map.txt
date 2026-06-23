@@ -1,0 +1,7 @@
+nb_drones: 2
+start_hub: start 0 0
+end_hub: end 6 0
+hub: mid 3 0 [zone=restricted]
+
+connection: start-mid
+connection: mid-end

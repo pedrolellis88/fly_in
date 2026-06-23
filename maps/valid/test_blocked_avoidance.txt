@@ -1,0 +1,12 @@
+nb_drones: 2
+start_hub: start 0 0 [color=green]
+end_hub: end 8 0 [color=yellow]
+hub: blocked1 3 0 [zone=blocked color=gray]
+hub: alt1 2 2 [zone=normal color=blue]
+hub: alt2 5 2 [zone=normal color=blue]
+
+connection: start-blocked1
+connection: blocked1-end
+connection: start-alt1
+connection: alt1-alt2
+connection: alt2-end

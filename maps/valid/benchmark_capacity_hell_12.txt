@@ -1,0 +1,35 @@
+nb_drones: 12
+start_hub: hub 0 0
+end_hub: goal 18 0
+hub: a1 2 3
+hub: a2 2 1
+hub: a3 2 -1
+hub: a4 2 -3
+hub: core1 6 0 [max_drones=1]
+hub: core2 10 0 [max_drones=1]
+hub: b1 14 3
+hub: b2 14 1
+hub: b3 14 -1
+hub: b4 14 -3
+
+connection: hub-a1
+connection: hub-a2
+connection: hub-a3
+connection: hub-a4
+
+connection: a1-core1
+connection: a2-core1
+connection: a3-core1
+connection: a4-core1
+
+connection: core1-core2 [max_link_capacity=1]
+
+connection: core2-b1
+connection: core2-b2
+connection: core2-b3
+connection: core2-b4
+
+connection: b1-goal
+connection: b2-goal
+connection: b3-goal
+connection: b4-goal

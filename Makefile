@@ -1,12 +1,13 @@
 PYTHON := python3
 PIP := pip3
+PYTEST := pytest -c tests/pytest.ini
 
 MAIN := main.py
 DEFAULT_MAP := maps/valid/easy_map_01.txt
 MAP ?= $(DEFAULT_MAP)
 
 FLAKE8 := flake8 .
-MYPY := mypy .
+MYPY := mypy --explicit-package-bases .
 MYPY_FLAGS := --warn-return-any \
               --warn-unused-ignores \
               --ignore-missing-imports \
@@ -16,7 +17,7 @@ MYPY_STRICT_FLAGS := --strict
 
 PYC_PATTERN := *.pyc
 
-.PHONY: install run debug clean lint lint-strict
+.PHONY: install run debug clean lint lint-strict test
 
 install:
 	@echo "Installing project dependencies..."
@@ -50,3 +51,7 @@ lint-strict:
 	@echo "Running mypy in strict mode..."
 	@$(MYPY) $(MYPY_STRICT_FLAGS)
 	@echo "Strict lint checks passed."
+
+test:
+	@echo "Running tests..."
+	@$(PYTEST)

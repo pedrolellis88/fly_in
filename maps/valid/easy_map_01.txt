@@ -1,8 +1,10 @@
-nb_drones: 3
-start_hub: hub 0 0 [color=green]
-end_hub: goal 10 10 [color=yellow]
-hub: roof1 3 4 [zone=normal color=red]
-hub: roof2 6 2 [zone=priority color=blue]
-connection: hub-roof1
-connection: roof1-roof2
-connection: roof2-goal
+nb_drones: 10
+start_hub: hub 0 0 [max_drones=10]
+end_hub: goal 6 0 [max_drones=10]
+
+hub: roof1 2 0 [max_drones=10 zone=restricted]
+hub: roof2 4 0 [max_drones=10]
+
+connection: hub-roof1 [max_link_capacity=10]
+connection: roof1-roof2 [max_link_capacity=10]
+connection: roof2-goal [max_link_capacity=10]

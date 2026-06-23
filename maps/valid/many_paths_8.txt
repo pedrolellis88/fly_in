@@ -1,0 +1,37 @@
+nb_drones: 8
+start_hub: hub 0 0 [color=green]
+end_hub: goal 16 0 [color=yellow]
+
+hub: a1 2 2
+hub: a2 2 -2
+
+hub: b1 6 3
+hub: b2 6 0
+hub: b3 6 -3
+
+hub: c1 10 2
+hub: c2 10 -2
+
+hub: d1 14 1
+hub: d2 14 -1
+
+connection: hub-a1
+connection: hub-a2
+
+connection: a1-b1
+connection: a1-b2
+connection: a2-b2
+connection: a2-b3
+
+connection: b1-c1
+connection: b2-c1
+connection: b2-c2
+connection: b3-c2
+
+connection: c1-d1
+connection: c1-d2
+connection: c2-d1
+connection: c2-d2
+
+connection: d1-goal
+connection: d2-goal
